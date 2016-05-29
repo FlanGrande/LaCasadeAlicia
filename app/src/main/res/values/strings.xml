@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">La Casa de Alicia</string>
+    <string name="buscar">Buscar</string>
+    <string name="see_cart">Ver el carrito</string>
 </resources>

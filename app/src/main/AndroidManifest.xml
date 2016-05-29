@@ -7,14 +7,25 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HomeScreenActivity">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity
+            android:name=".HomeScreenActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- otras actividades para habilitar la accion UP
+        <activity
+            android:parentActivityName="grande.francis.lacasadealicia.HomeScreenActivity" >
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="grande.francis.lacasadealicia.HomeScreenActivity" />
+        -->
+    </application>
 </manifest>
