@@ -2,4 +2,54 @@
     <string name="app_name">La Casa de Alicia</string>
     <string name="buscar">Buscar</string>
     <string name="see_cart">Ver el carrito</string>
+
+    <string name="inicio">Inicio</string>
+    <string name="titulo_artesania_y_bordados">Artesanía y bordados</string>
+    <string name="titulo_complementos_maternidad">Complementos maternidad</string>
+    <string name="titulo_ceremonia">Ceremonia</string>
+    <string name="titulo_complementos">Complementos</string>
+    <string name="titulo_moda_infantil">Moda infantil</string>
+
+    <string name="ayb_cojines">Cojines bordados artesanales</string>
+    <string name="ayb_toallas">Toallas bordadas</string>
+    <string name="ayb_toquillas">Toquillas</string>
+    <string name="ayb_baberos">Baberos bordados</string>
+    <string name="ayb_primer_dia">Primer día</string>
+    <string name="ayb_talegas">Talegas infatiles</string>
+    <string name="ayb_mochilas">Mochilas infantiles</string>
+
+    <string name="cm_maletas">Maletas</string>
+    <string name="cm_bolsos">Bolsos</string>
+    <string name="cm_neceser">Neceser</string>
+    <string name="cm_portatoallitas">Portatoallitas</string>
+    <string name="cm_cambiador">Cambiador</string>
+    <string name="cm_portabiberon">Portabiberón</string>
+    <string name="cm_portachupete">Portachupete</string>
+    <string name="cm_portadocumentos">Portadocumentos</string>
+    <string name="cm_sacos">Sacos portabebé</string>
+    <string name="cm_manoplas">Manoplas para cochecito</string>
+
+    <string name="cer_trajes">Trajes de ceremonia</string>
+    <string name="cer_zapatos">Zapatos de ceremonia</string>
+    <string name="cer_panuelo">Pañuelos de ceremonia</string>
+    <string name="cer_conchas">Conchas</string>
+    <string name="cer_medallones">Medallones</string>
+
+    <string name="com_chupetes">Chupetes personalizados</string>
+    <string name="com_sujetachupetes">Sujetachupetes personalizados</string>
+    <string name="com_puericultura">Puericultura</string>
+    <string name="com_vajillas">Vajillas infantiles</string>
+    <string name="com_cuberteria">Cubertería infantil</string>
+    <string name="com_portafotos">Portafotos infantiles</string>
+
+    <string name="mi_nino">Niño</string>
+    <string name="mi_nina">Niña</string>
+    <string name="mi_otono_invierno">Otoño-Invierno</string>
+
+    <string name="info_localizacion">Localización</string>
+    <string name="info_contacto">Contacto</string>
+    <string name="info_quienes_somos">Quiénes somos</string>
+    <string name="drawer_open">open drawer</string>
+    <string name="drawer_close">close drawer</string>
+
 </resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="titulos">
+        <item>@string/titulo_artesania_y_bordados</item>
+        <item>@string/titulo_complementos_maternidad</item>
+        <item>@string/titulo_ceremonia</item>
+        <item>@string/titulo_complementos</item>
+        <item>@string/titulo_moda_infantil</item>
+    </string-array>
+
+    <string-array
+        name="ayb">
+        <item>@string/ayb_cojines</item>
+        <item>@string/ayb_toallas</item>
+        <item>@string/ayb_toquillas</item>
+        <item>@string/ayb_baberos</item>
+        <item>@string/ayb_primer_dia</item>
+        <item>@string/ayb_talegas</item>
+        <item>@string/ayb_mochilas</item>
+    </string-array>
+
+    <string-array
+        name="cm">
+        <item>@string/cm_maletas</item>
+        <item>@string/cm_bolsos</item>
+        <item>@string/cm_neceser</item>
+        <item>@string/cm_portatoallitas</item>
+        <item>@string/cm_cambiador</item>
+        <item>@string/cm_portabiberon</item>
+        <item>@string/cm_portachupete</item>
+        <item>@string/cm_portadocumentos</item>
+        <item>@string/cm_sacos</item>
+        <item>@string/cm_manoplas</item>
+    </string-array>
+
+    <string-array
+        name="cer">
+        <item>@string/cer_trajes</item>
+        <item>@string/cer_zapatos</item>
+        <item>@string/cer_panuelo</item>
+        <item>@string/cer_conchas</item>
+        <item>@string/cer_medallones</item>
+    </string-array>
+
+    <string-array
+        name="com">
+        <item>@string/com_chupetes</item>
+        <item>@string/com_sujetachupetes</item>
+        <item>@string/com_puericultura</item>
+        <item>@string/com_vajillas</item>
+        <item>@string/com_cuberteria</item>
+        <item>@string/com_portafotos</item>
+    </string-array>
+
+    <string-array
+        name="mi">
+        <item>@string/mi_nino</item>
+        <item>@string/mi_otono_invierno</item>
+        <item>@string/mi_nina</item>
+        <item>@string/mi_otono_invierno</item>
+    </string-array>
+
+    <string-array
+        name="info">
+        <item>@string/info_localizacion</item>
+        <item>@string/info_contacto</item>
+        <item>@string/info_quienes_somos</item>
+    </string-array>
+
+</resources>

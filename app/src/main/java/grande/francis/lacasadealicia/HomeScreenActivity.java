@@ -1,13 +1,24 @@
 package grande.francis.lacasadealicia;
 
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class HomeScreenActivity extends AppCompatActivity
 {
+	private String[] categorias;
+	private DrawerLayout mDrawerLayout;
+	private ActionBarDrawerToggle mDrawerToggle;
+	private ListView mDrawerList;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -20,9 +31,41 @@ public class HomeScreenActivity extends AppCompatActivity
 		{
 			getSupportActionBar().setLogo(R.drawable.ic_launcher);
 			getSupportActionBar().setDisplayShowTitleEnabled(false);
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+			getSupportActionBar().setHomeButtonEnabled(true);
 		}
+
+		categorias = getResources().getStringArray(R.array.titulos);
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerToggle = new ActionBarDrawerToggle(
+				this,                  	/* host Activity */
+				mDrawerLayout,         	/* DrawerLayout object */
+				myToolbar,  		   	/* toolbar used */
+				R.string.drawer_open,  	/* "open drawer" description */
+				R.string.drawer_close  	/* "close drawer" description */
+		) {
+
+			/** Called when a drawer has settled in a completely closed state. */
+			public void onDrawerClosed(View view) {
+				super.onDrawerClosed(view);
+			}
+
+			/** Called when a drawer has settled in a completely open state. */
+			public void onDrawerOpened(View drawerView) {
+				super.onDrawerOpened(drawerView);
+			}
+		};
+
+		mDrawerToggle.setDrawerIndicatorEnabled(true);
+		mDrawerToggle.syncState();
+		mDrawerLayout.addDrawerListener(mDrawerToggle);
+
+		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+		mDrawerList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categorias));
+		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 	}
 
+	//<editor-fold desc="onCreateOptionsMenu, onOptionsItemSelected and DrawerItemClickListener">
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -50,5 +93,35 @@ public class HomeScreenActivity extends AppCompatActivity
 				// Invoke the superclass to handle it.
 				return super.onOptionsItemSelected(item);
 		}
+	}
+
+	private class DrawerItemClickListener implements ListView.OnItemClickListener
+	{
+		@Override
+		public void onItemClick(AdapterView parent, View view, int position, long id)
+		{
+			selectItem(position);
+		}
+	}
+
+	//</editor-fold>
+
+	private void selectItem(int position)
+	{
+		//TO DO implementar cambio de fragment
+		/*// Create a new fragment and specify the planet to show based on position
+		Fragment fragment = new PlanetFragment();
+		Bundle args = new Bundle();
+		args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+		fragment.setArguments(args);
+
+		// Insert the fragment by replacing any existing fragment
+		FragmentManager fragmentManager = getFragmentManager();
+		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+		// Highlight the selected item, update the title, and close the drawer
+		mDrawerList.setItemChecked(position, true);
+		setTitle(categorias[position]);
+		mDrawerLayout.closeDrawer(mDrawerList);*/
 	}
 }
