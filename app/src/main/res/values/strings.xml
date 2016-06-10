@@ -51,5 +51,9 @@
     <string name="info_quienes_somos">Quiénes somos</string>
     <string name="drawer_open">open drawer</string>
     <string name="drawer_close">close drawer</string>
+    <string name="cojin">Cojin</string>
+    <string name="chupete">chupete</string>
+    <string name="biberon">biberón</string>
+    <string name="talega">talega</string>
 
 </resources>
