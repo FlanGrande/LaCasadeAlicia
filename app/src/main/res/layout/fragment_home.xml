@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="grande.francis.lacasadealicia.HomeFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                android:padding="0dp"
+                android:layout_margin="@dimen/images_margin"
+                android:id="@+id/cojin"
+                android:src="@drawable/cojin_1"
+                android:contentDescription="@string/cojin"
+                android:scaleType="centerCrop" />
+
+            <ImageButton
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                android:padding="0dp"
+                android:layout_margin="@dimen/images_margin"
+                android:id="@+id/chupete"
+                android:src="@drawable/chupete_alicia"
+                android:contentDescription="@string/chupete"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                android:padding="0dp"
+                android:layout_margin="@dimen/images_margin"
+                android:id="@+id/biberon"
+                android:src="@drawable/biberon_1"
+                android:contentDescription="@string/biberon"
+                android:scaleType="centerCrop" />
+
+            <ImageButton
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                android:padding="0dp"
+                android:layout_margin="@dimen/images_margin"
+                android:id="@+id/talega"
+                android:src="@drawable/talega_1"
+                android:contentDescription="@string/talega"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
