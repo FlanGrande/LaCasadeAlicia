@@ -8,18 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".HomeScreenActivity" />
 
-        <activity
-            android:name=".HomeScreenActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-        <!-- otras actividades para habilitar la accion UP
+        <!--
+        otras actividades para habilitar la accion UP
         <activity
             android:parentActivityName="grande.francis.lacasadealicia.HomeScreenActivity" >
 
@@ -27,5 +19,13 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="grande.francis.lacasadealicia.HomeScreenActivity" />
         -->
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
+
 </manifest>
