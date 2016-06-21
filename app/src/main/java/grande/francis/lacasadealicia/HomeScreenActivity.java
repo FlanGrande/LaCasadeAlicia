@@ -15,8 +15,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class HomeScreenActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener
+public class HomeScreenActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, ArticulosFragmentListView.OnListFragmentInteractionListener
 {
+	public static DBController db;
 	private String[] categorias;
 	private DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -70,6 +71,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+		db = new DBController(this);
 	}
 
 	//<editor-fold desc="onCreateOptionsMenu, onOptionsItemSelected and DrawerItemClickListener">
@@ -108,6 +110,12 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 
 	}
 
+	@Override
+	public void onListFragmentInteraction(Articulo item)
+	{
+
+	}
+
 	private class DrawerItemClickListener implements ListView.OnItemClickListener
 	{
 		@Override
@@ -121,22 +129,23 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 
 	private void selectItem(int position)
 	{
-		//TO DO implementar cambio de fragment
-		/*
+		Fragment fragment;
+
 		// Create a new fragment and specify the planet to show based on position
-		Fragment fragment = new PlanetFragment();
-		Bundle args = new Bundle();
-		args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-		fragment.setArguments(args);
+		switch(position)
+		{
+			case 0: fragment = new HomeFragment(); break;
+			default: fragment = new ArticulosFragmentListView();
+		}
+
 
 		// Insert the fragment by replacing any existing fragment
-		FragmentManager fragmentManager = getFragmentManager();
+		FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
-		setTitle(categorias[position]);
 		mDrawerLayout.closeDrawer(mDrawerList);
-		*/
+
 	}
 }

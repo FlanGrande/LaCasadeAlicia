@@ -55,5 +55,6 @@
     <string name="chupete">chupete</string>
     <string name="biberon">biberón</string>
     <string name="talega">talega</string>
+    <string name="Vacio">No hay artículos disponibles.</string>
 
 </resources>

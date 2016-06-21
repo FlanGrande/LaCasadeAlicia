@@ -2,6 +2,8 @@
 <resources>
     <string-array
         name="titulos">
+        <item>@string/inicio</item>
+        <item>@string/todo</item>
         <item>@string/titulo_artesania_y_bordados</item>
         <item>@string/titulo_complementos_maternidad</item>
         <item>@string/titulo_ceremonia</item>
@@ -68,4 +70,5 @@
         <item>@string/info_quienes_somos</item>
     </string-array>
 
+    <string name="todo">Todos los artículos</string>
 </resources>
