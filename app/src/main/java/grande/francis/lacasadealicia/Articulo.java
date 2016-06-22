@@ -3,15 +3,21 @@ package grande.francis.lacasadealicia;
 public class Articulo
 {
 	private int idArticulo, idFoto;
-	private String nombre;
+	private String nombre, categoria;
 	private float precio;
 
-	public Articulo(int idArticulo, int idFoto, String n, float p)
+	public Articulo(int idArticulo, int idFoto, String nombre, String categoria, float precio)
 	{
 		this.idArticulo = idArticulo;
 		this.idFoto = idFoto;
-		this.nombre = n;
-		this.precio = p;
+		this.nombre = nombre;
+		this.categoria = categoria;
+		this.precio = precio;
+	}
+
+	public int getFoto()
+	{
+		return this.idFoto;
 	}
 
 	public String getNombre()
@@ -19,8 +25,15 @@ public class Articulo
 		return this.nombre;
 	}
 
+	public String getCategoria()
+	{
+		return this.categoria;
+	}
+
 	public float getPrecio()
 	{
 		return this.precio;
 	}
+
+
 }

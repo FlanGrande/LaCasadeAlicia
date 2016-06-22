@@ -4,11 +4,13 @@
     <string name="see_cart">Ver el carrito</string>
 
     <string name="inicio">Inicio</string>
+    <string name="todo">Todos los artículos</string>
     <string name="titulo_artesania_y_bordados">Artesanía y bordados</string>
     <string name="titulo_complementos_maternidad">Complementos maternidad</string>
     <string name="titulo_ceremonia">Ceremonia</string>
     <string name="titulo_complementos">Complementos</string>
     <string name="titulo_moda_infantil">Moda infantil</string>
+    <string name="varios">Varios</string>
 
     <string name="ayb_cojines">Cojines bordados artesanales</string>
     <string name="ayb_toallas">Toallas bordadas</string>
@@ -23,6 +25,7 @@
     <string name="cm_neceser">Neceser</string>
     <string name="cm_portatoallitas">Portatoallitas</string>
     <string name="cm_cambiador">Cambiador</string>
+    <string name="cm_biberon">Biberón</string>
     <string name="cm_portabiberon">Portabiberón</string>
     <string name="cm_portachupete">Portachupete</string>
     <string name="cm_portadocumentos">Portadocumentos</string>
@@ -57,4 +60,31 @@
     <string name="talega">talega</string>
     <string name="Vacio">No hay artículos disponibles.</string>
 
+    <string name="cojin_angel_guarda">Cojín "Ángel de la guarda"</string>
+    <string name="cojin_nombre_personalizado">Cojin con nombre personalizado</string>
+    <string name="cojin_cuadrado_angel">Cojín "Ángel de la guarda" cuadrado</string>
+    <string name="cojin_personalizado_angel">Cojín "Ángel de la guarda" personalizado</string>
+    <string name="cojin_nino_luna">Cojín "Duérmete mi niño"</string>
+    <string name="cojin_jesusito">Cojín "Jesusito de mi vida"</string>
+
+    <string name="talega_atellier_rosa">Atellier rosa</string>
+    <string name="talega_jardin">Jardín de letras</string>
+    <string name="talega_lau_school">Lau School</string>
+    <string name="talega_vichi">Vichí</string>
+    <string name="talega_rayas">Rayas classic</string>
+    <string name="talega_lunar">Lunar classic</string>
+
+    <string name="chupete_nombre">Chupete con nombre</string>
+    <string name="chupete_quiero_mama">Chupete "Te quiero mamá"</string>
+    <string name="chupete_quiero_papa">Chupete "Te quiero papá"</string>
+    <string name="chupete_love_mama">Chupete "Yo &lt;3 mamá"</string>
+    <string name="chupete_love_papa">Chupete "Yo &lt;3 papá"</string>
+    <string name="chupete_mejor_papa">Chupete "Mi papi es el mejor"</string>
+
+    <string name="varios_sc">Sujetachupete personalizado</string>
+    <string name="varios_biberon">Biberón personalizado</string>
+    <string name="varios_cepillo_dientes">Cepillo de dientes personalizado</string>
+    <string name="varios_cepillo_peine">Cepillo y peine personalizados</string>
+    <string name="varios_portachupete">Portachupete personalizado</string>
+    <string name="varios_sonajero">Sonajero personalizado</string>
 </resources>

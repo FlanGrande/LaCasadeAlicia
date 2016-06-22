@@ -1,10 +1,14 @@
 package grande.francis.lacasadealicia;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -13,15 +17,18 @@ import grande.francis.lacasadealicia.ArticulosFragmentListView.OnListFragmentInt
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Articulo} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
+ * TODO: add image.
  */
 public class MyArticulosAdapter extends RecyclerView.Adapter<MyArticulosAdapter.ViewHolder> {
 
+    //private LruCache<String, Bitmap> mMemoryCache;
     private final ArrayList<Articulo> mValues;
     private final OnListFragmentInteractionListener mListener;
+    protected Context con;
 
     public MyArticulosAdapter(ArrayList<Articulo> items, OnListFragmentInteractionListener listener)
     {
+        con = DBController.cAplicacion;
         mValues = items;
         mListener = listener;
     }
@@ -35,8 +42,9 @@ public class MyArticulosAdapter extends RecyclerView.Adapter<MyArticulosAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
+        Picasso.with(con).load(mValues.get(position).getFoto()).into(holder.mFotoArticulo);
         holder.mNombreArticulo.setText(mValues.get(position).getNombre());
-        holder.mPrecioArticulo.setText(Float.toString(mValues.get(position).getPrecio()));
+        holder.mPrecioArticulo.setText(Float.toString(mValues.get(position).getPrecio()) + " €");
 
         holder.mViewArticulo.setOnClickListener(new View.OnClickListener()
         {
@@ -60,6 +68,7 @@ public class MyArticulosAdapter extends RecyclerView.Adapter<MyArticulosAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mViewArticulo;
+        public final ImageView mFotoArticulo;
         public final TextView mNombreArticulo;
         public final TextView mPrecioArticulo;
         public Articulo mItem;
@@ -67,6 +76,7 @@ public class MyArticulosAdapter extends RecyclerView.Adapter<MyArticulosAdapter.
         public ViewHolder(View view) {
             super(view);
             mViewArticulo = view;
+            mFotoArticulo = (ImageView) view.findViewById(R.id.foto_aticulo); //cache?
             mNombreArticulo = (TextView) view.findViewById(R.id.nombre_articulo);
             mPrecioArticulo = (TextView) view.findViewById(R.id.precio);
         }

@@ -40,7 +40,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 			getSupportActionBar().setHomeButtonEnabled(true);
 		}
 
-		categorias = getResources().getStringArray(R.array.titulos);
+		categorias = getResources().getStringArray(R.array.menu_izq);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerToggle = new ActionBarDrawerToggle(
 				this,                  	/* host Activity */

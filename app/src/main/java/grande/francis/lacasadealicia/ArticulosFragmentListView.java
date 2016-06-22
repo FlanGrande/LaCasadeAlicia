@@ -47,6 +47,9 @@ public class ArticulosFragmentListView extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		View view = inflater.inflate(R.layout.fragment_listview, container, false);
+		//ListView list2=(ListView)view.findViewById(R.id.list);
+		//View emptyView = view.findViewById(R.id.empty_list);
+		//list2.setEmptyView(emptyView);
 
 		// Set the adapter
 		if(view instanceof RecyclerView)

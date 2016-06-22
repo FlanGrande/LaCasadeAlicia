@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array
-        name="titulos">
+        name="menu_izq">
         <item>@string/inicio</item>
         <item>@string/todo</item>
         <item>@string/titulo_artesania_y_bordados</item>
         <item>@string/titulo_complementos_maternidad</item>
-        <item>@string/titulo_ceremonia</item>
-        <item>@string/titulo_complementos</item>
-        <item>@string/titulo_moda_infantil</item>
+        <item>@string/varios</item>
     </string-array>
 
     <string-array
@@ -29,6 +27,7 @@
         <item>@string/cm_neceser</item>
         <item>@string/cm_portatoallitas</item>
         <item>@string/cm_cambiador</item>
+        <item>@string/cm_biberon</item>
         <item>@string/cm_portabiberon</item>
         <item>@string/cm_portachupete</item>
         <item>@string/cm_portadocumentos</item>
@@ -69,6 +68,4 @@
         <item>@string/info_contacto</item>
         <item>@string/info_quienes_somos</item>
     </string-array>
-
-    <string name="todo">Todos los artículos</string>
 </resources>
