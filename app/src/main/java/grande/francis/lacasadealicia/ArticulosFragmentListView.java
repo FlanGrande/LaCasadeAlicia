@@ -3,6 +3,7 @@ package grande.francis.lacasadealicia;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,10 +20,14 @@ import java.util.ArrayList;
  */
 public class ArticulosFragmentListView extends Fragment
 {
-	private ArrayList<Articulo> articulos;
+	public static ArrayList<Articulo> articulos;
+	private ArrayList<Articulo> carritoAux;
+	private MyArticulosAdapter maa;
+	private String filtro;
+	private boolean esCarrito = false;
 	private OnListFragmentInteractionListener mListener;
+	private RecyclerView recyclerView;
 
-	// TODO: Customize parameter initialization
 	public static ArticulosFragmentListView newInstance()
 	{
 		return new ArticulosFragmentListView();
@@ -34,13 +39,28 @@ public class ArticulosFragmentListView extends Fragment
 	 */
 	public ArticulosFragmentListView()
 	{
-		articulos = HomeScreenActivity.db.listadoTodosArticulos();
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		filtro = DBController.CATEGORIA_TODOS;
+
+		if(getArguments() != null)
+		{
+			filtro = getArguments().getString("categoria");
+			esCarrito = getArguments().getBoolean("carrito");
+		}
+
+		if(esCarrito)
+		{
+			carritoAux = HomeScreenActivity.carrito;
+		}
+		else
+		{
+			articulos = HomeScreenActivity.db.listadoArticulos(filtro);
+		}
 	}
 
 	@Override
@@ -54,10 +74,23 @@ public class ArticulosFragmentListView extends Fragment
 		// Set the adapter
 		if(view instanceof RecyclerView)
 		{
+			recyclerView = (RecyclerView) view;
 			Context context = view.getContext();
-			RecyclerView recyclerView = (RecyclerView) view;
 			recyclerView.setLayoutManager(new LinearLayoutManager(context));
-			recyclerView.setAdapter(new MyArticulosAdapter(articulos, mListener));
+
+			if(esCarrito)
+			{
+				maa = new MyArticulosAdapter(carritoAux, mListener, true);
+				RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
+				itemAnimator.setRemoveDuration(500);
+				recyclerView.setItemAnimator(itemAnimator);
+				recyclerView.setAdapter(maa);
+			}
+			else
+			{
+				maa = new MyArticulosAdapter(articulos, mListener, false);
+				recyclerView.setAdapter(maa);
+			}
 		}
 
 		return view;
@@ -97,7 +130,14 @@ public class ArticulosFragmentListView extends Fragment
 	 */
 	public interface OnListFragmentInteractionListener
 	{
-		// TODO: Update argument type and name
-		void onListFragmentInteraction(Articulo item);
+		void onListFragmentInteraction(int position, boolean esCarrito);
+	}
+
+	public void elimina(int position)
+	{
+		if(esCarrito)
+		{
+			maa.remove(position);
+		}
 	}
 }

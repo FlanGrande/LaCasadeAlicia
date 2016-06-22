@@ -14,15 +14,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
-public class HomeScreenActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, ArticulosFragmentListView.OnListFragmentInteractionListener
+import java.util.ArrayList;
+
+public class HomeScreenActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, ArticulosFragmentListView.OnListFragmentInteractionListener, VistaArticulo.OnVistaFragmentInteractionListener
 {
 	public static DBController db;
+	public static ArrayList<Articulo> carrito;
 	private String[] categorias;
 	private DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private ListView mDrawerList;
-	private Fragment homeFragment = new HomeFragment();
+	private HomeFragment homeFragment = HomeFragment.newInstance();
+	private VistaArticulo vistaFragment;
+	private ArticulosFragmentListView listaFragment, carritoFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -31,6 +37,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 		setContentView(R.layout.activity_home_screen);
 		Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(myToolbar);
+		carrito = new ArrayList<>();
 
 		if(getSupportActionBar() != null)
 		{
@@ -93,8 +100,16 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 				return true;
 
 			case R.id.action_cart:
-				// User chose the "Favorite" action, mark the current item
-				// as a favorite...
+				carritoFragment = ArticulosFragmentListView.newInstance();
+
+				Bundle args = new Bundle();
+				args.putBoolean("carrito", true);
+				carritoFragment.setArguments(args);
+
+
+				// Insert the fragment by replacing any existing fragment
+				FragmentManager fragmentManager = getSupportFragmentManager();
+				fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.content_frame, carritoFragment).commit();
 				return true;
 
 			default:
@@ -111,8 +126,45 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 	}
 
 	@Override
-	public void onListFragmentInteraction(Articulo item)
+	public void onListFragmentInteraction(int position, boolean esCarrito)
 	{
+		if(esCarrito)
+		{
+			carritoFragment.elimina(position);
+			mostrarMensaje(getString(R.string.remove_cart_toast));
+		}
+		else
+		{
+			vistaFragment = VistaArticulo.newInstance(position);
+
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.content_frame, vistaFragment).commit();
+		}
+	}
+
+	@Override
+	public void onVistaFragmentInteraction(Articulo art)
+	{
+		carrito.add(art);
+		mostrarMensaje(getString(R.string.add_cart_toast));
+	}
+
+	public void add(View view)
+	{
+		vistaFragment.add();
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		int count = getFragmentManager().getBackStackEntryCount();
+
+		if (count == 0) {
+			super.onBackPressed();
+			//additional code
+		} else {
+			getFragmentManager().popBackStack();
+		}
 
 	}
 
@@ -129,23 +181,46 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeFragmen
 
 	private void selectItem(int position)
 	{
-		Fragment fragment;
+		Fragment tmp;
+		String categoria = "";
 
 		// Create a new fragment and specify the planet to show based on position
 		switch(position)
 		{
-			case 0: fragment = new HomeFragment(); break;
-			default: fragment = new ArticulosFragmentListView();
+			case 0: homeFragment = HomeFragment.newInstance(); break;
+			case 1: categoria = DBController.CATEGORIA_TODOS; listaFragment = ArticulosFragmentListView.newInstance(); break;
+			case 2: categoria = DBController.CATEGORIA_ARTESANIA; listaFragment = ArticulosFragmentListView.newInstance(); break;
+			case 3: categoria = DBController.CATEGORIA_MATERNIDAD; listaFragment = ArticulosFragmentListView.newInstance(); break;
+			case 4: categoria = DBController.CATEGORIA_VARIOS; listaFragment = ArticulosFragmentListView.newInstance(); break;
+			default: homeFragment = HomeFragment.newInstance();
+		}
+
+		if(!categoria.equals(""))
+		{
+			Bundle args = new Bundle();
+			args.putString("categoria", categoria);
+			args.putBoolean("carrito", false);
+			listaFragment.setArguments(args);
+			tmp = listaFragment;
+		}
+		else
+		{
+			tmp = homeFragment;
 		}
 
 
 		// Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+		fragmentManager.beginTransaction().replace(R.id.content_frame, tmp).commit();
 
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
 		mDrawerLayout.closeDrawer(mDrawerList);
 
+	}
+
+	public void mostrarMensaje(String mensaje)
+	{
+		Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
 	}
 }

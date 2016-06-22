@@ -55,9 +55,9 @@
     <string name="drawer_open">open drawer</string>
     <string name="drawer_close">close drawer</string>
     <string name="cojin">Cojin</string>
-    <string name="chupete">chupete</string>
-    <string name="biberon">biberón</string>
-    <string name="talega">talega</string>
+    <string name="chupete">Chupete</string>
+    <string name="biberon">Biberón</string>
+    <string name="talega">Talega</string>
     <string name="Vacio">No hay artículos disponibles.</string>
 
     <string name="cojin_angel_guarda">Cojín "Ángel de la guarda"</string>
@@ -87,4 +87,12 @@
     <string name="varios_cepillo_peine">Cepillo y peine personalizados</string>
     <string name="varios_portachupete">Portachupete personalizado</string>
     <string name="varios_sonajero">Sonajero personalizado</string>
+    <string name="simbolo_moneda">€</string>
+    <string name="tbd">TBD</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_cart">Añadir al carrito</string>
+    <string name="add_cart_toast">Articulo añadido al carrito</string>
+    <string name="remove_cart_toast">Se ha eliminado el articulo del carrito</string>
 </resources>

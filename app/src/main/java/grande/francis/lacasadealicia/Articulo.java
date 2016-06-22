@@ -15,6 +15,11 @@ public class Articulo
 		this.precio = precio;
 	}
 
+	public int getIdArticulo()
+	{
+		return this.idArticulo;
+	}
+
 	public int getFoto()
 	{
 		return this.idFoto;
